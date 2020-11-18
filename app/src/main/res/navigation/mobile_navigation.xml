@@ -8,7 +8,11 @@
         android:id="@+id/succursalesFragment"
         android:name="ca.qc.cstj.tp2.succursalesFragment"
         android:label="Succursales"
-        tools:layout="@layout/fragment_succursales" />
+        tools:layout="@layout/fragment_succursales" >
+        <action
+            android:id="@+id/action_succursalesFragment_to_detailsSuccursaleFragment"
+            app:destination="@id/detailsSuccursaleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="ca.qc.cstj.tp2.categoriesFragment"
@@ -19,4 +23,14 @@
         android:name="ca.qc.cstj.tp2.aProposFragment"
         android:label="À propos"
         tools:layout="@layout/fragment_a_propos" />
+    <fragment
+        android:id="@+id/detailsSuccursaleFragment"
+        android:name="ca.qc.cstj.tp2.detailsSuccursaleFragment"
+        android:label="fragment_details_succursale"
+        tools:layout="@layout/fragment_details_succursale" >
+        <argument
+            android:name="succursale"
+            app:argType="ca.qc.cstj.tp2.models.Succursale"
+            app:nullable="true" />
+    </fragment>
 </navigation>
