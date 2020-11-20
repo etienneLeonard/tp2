@@ -20,11 +20,15 @@ import java.util.*
 
 class SuccursaleRecyclerViewAdapter(var succursales: List<Succursale> = listOf()) : RecyclerView.Adapter<SuccursaleRecyclerViewAdapter.ViewHolder>() {
 
+    //EL : Barre de chargement le temps que les succursales se chargent
     private lateinit var circularProgressDrawable: CircularProgressDrawable
 
+    //EL : fonction à la création du viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuccursaleRecyclerViewAdapter.ViewHolder {
+        //on indique la view à afficher
         val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_succursale, parent, false)
 
+        //EL : on lance la barre de chargement
         circularProgressDrawable = CircularProgressDrawable(view.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
@@ -41,15 +45,19 @@ class SuccursaleRecyclerViewAdapter(var succursales: List<Succursale> = listOf()
     override fun getItemCount(): Int = succursales.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
+        //on indique le textView qui va afficher le nom de la succursale
         private val txvSuccursaleName: TextView = view.txvSuccursaleName
 
         fun bind(succursale: Succursale) {
+            //le nom de la succursale est le nom de la ville
             txvSuccursaleName.text = succursale.ville
 
+            //EL : on écoute pour s'il y a un clique sur la succursale
             view.setOnClickListener {
+                //EL : on affiche le nom de la succursale que l'on a cliquer dessus
                 Toast.makeText(it.context, succursale.ville, Toast.LENGTH_SHORT).show()
 
+                //EL : On indique où on doit aller lorsque l'on clique sur la succursale
                 val direction = succursalesFragmentDirections.actionSuccursalesFragmentToDetailsSuccursaleFragment(succursale)
 
                 it.findNavController().navigate(direction)
