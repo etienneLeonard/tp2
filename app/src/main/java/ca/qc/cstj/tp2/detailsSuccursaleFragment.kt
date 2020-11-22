@@ -10,11 +10,11 @@ import kotlinx.android.synthetic.main.fragment_details_succursale.*
 
 class detailsSuccursaleFragment : Fragment() {
 
+    //on va récupérer les arguments du fragment
     private val args: detailsSuccursaleFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -25,9 +25,10 @@ class detailsSuccursaleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //changer le titre dans le barre en haut
         (activity as BottomActivity).supportActionBar?.title = args.succursale!!.ville
 
-
+        //afficher les informations de la succurale sélectionnée
         txvVilleSuccursale.text = args.succursale!!.ville
         txvAdresseSuccursale.text = args.succursale!!.adresse
         txvInformationSuccursale.text = args.succursale!!.information

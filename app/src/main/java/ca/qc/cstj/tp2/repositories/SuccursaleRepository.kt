@@ -14,14 +14,13 @@ import kotlinx.serialization.json.Json
 object SuccursaleRepository {
 
     suspend fun getSuccursales(): RepositoryResult<List<Succursale>> {
-        //AJAX Get
         return withContext(Dispatchers.IO) {
-            //Dans un autre thread
+            //EL : On va récupérer les succursales avec le service
             val (_, _, result) = Services.SUCCURSALE_SERVICE.httpGet().responseJson()
 
+            //EL : Dépendement de si on a réussi à aller chercher les succurales ou non, on doit exécuter sois un succès ou un erreur
             when (result) {
                 is Result.Success -> {
-                    //TODO: Transformer la string en List<Succursale> --> Déserialiser (DéSpécialK)
                     RepositoryResult.Success(Json { ignoreUnknownKeys = true }.decodeFromString(result.value.content))
                 }
                 is Result.Failure -> {

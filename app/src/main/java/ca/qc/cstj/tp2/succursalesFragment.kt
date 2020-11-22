@@ -34,18 +34,20 @@ class succursalesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val topSpacingItemDecoration = TopSpacingItemDecoration(30)
+        // EL : on garde en mémoire la distance que l'on veut entre chaque succursale
+        val topSpacingItemDecoration = TopSpacingItemDecoration(35)
 
         succursaleRecyclerViewAdapter = SuccursaleRecyclerViewAdapter()
 
+        // EL : on applique au recyclesView de succursales le layout que l'on veut
         rcvSuccursales.apply {
             layoutManager = LinearLayoutManager(this.context)
             adapter = succursaleRecyclerViewAdapter
             addItemDecoration(topSpacingItemDecoration)
         }
 
+        //on affiche tous les succursales
         lifecycleScope.launch {
-
             when(val result = SuccursaleRepository.getSuccursales()) {
                 is RepositoryResult.Success -> {
                     succursaleRecyclerViewAdapter.succursales = result.data
@@ -57,7 +59,6 @@ class succursalesFragment : Fragment() {
             }
         }
     }
-
 
     companion object {
         fun newInstance(param1: String, param2: String) =
