@@ -1,4 +1,6 @@
 package ca.qc.cstj.tp2.models
 
-class categorie {
-}
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Categorie (val NomCategorie:String):java.io.Serializable

@@ -17,7 +17,12 @@
         android:id="@+id/categoriesFragment"
         android:name="ca.qc.cstj.tp2.categoriesFragment"
         android:label="Catégories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_categorie_livre"
+            app:destination="@id/categorie_livre"
+            />
+    </fragment>
     <fragment
         android:id="@+id/aProposFragment"
         android:name="ca.qc.cstj.tp2.aProposFragment"
@@ -32,5 +37,14 @@
             android:name="succursale"
             app:argType="ca.qc.cstj.tp2.models.Succursale"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/categorie_livre"
+        android:name="ca.qc.cstj.tp2.categorie_livreFragment"
+        android:label="Livres"
+        tools:layout="@layout/fragment_categorie_livre">
+        <argument
+            android:name="NomCategorie"
+            app:argType="string" />
     </fragment>
 </navigation>

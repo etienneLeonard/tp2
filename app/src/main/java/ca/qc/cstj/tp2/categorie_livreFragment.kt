@@ -13,24 +13,24 @@ import kotlinx.coroutines.launch
 import kotlinx.android.synthetic.main.fragment_categorie_livre.*
 import ca.qc.cstj.tp2.adapters.CategorieLivreRecyclerViewAdapter
 import ca.qc.cstj.tp2.helpers.RepositoryResult
-import androidx.recyclerview.widget.RecyclerView.LayoutManager as layoutManager
 import ca.qc.cstj.tp2.helpers.TopSpacingItemDecoration
 import ca.qc.cstj.tp2.repositories.CategorieLivreRepository
 
-
-class categorie_livre : Fragment() {
-
-
+class categorie_livreFragment : Fragment() {
+    //Va chercher le view holder
     private lateinit var categorieLivreRecyclerViewAdapter: CategorieLivreRecyclerViewAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_categorie_livre, container, false)
     }
@@ -40,9 +40,8 @@ class categorie_livre : Fragment() {
 
         val topSpacingItemDecoration = TopSpacingItemDecoration(30)
 
+        //Affiche le view holder
         categorieLivreRecyclerViewAdapter = CategorieLivreRecyclerViewAdapter()
-
-
         rcvCategorieLivre.apply {
             layoutManager = LinearLayoutManager(this.context)
             adapter = categorieLivreRecyclerViewAdapter
@@ -51,15 +50,17 @@ class categorie_livre : Fragment() {
 
         }
         lifecycleScope.launch {
-            val args: categorie_livreArgs by navArgs()
+            //Ca chercher les parametres
+            val args: categorie_livreFragmentArgs by navArgs()
 
             when (val result = CategorieLivreRepository.getCategorieLivre(args.NomCategorie)) {
                 is RepositoryResult.Success -> {
+                    //Affiche les livres de la categorie
                     categorieLivreRecyclerViewAdapter.livre = result.data
                     rcvCategorieLivre.adapter!!.notifyDataSetChanged()
                 }
                 is RepositoryResult.Error -> {
-                    Toast.makeText(this@categorie_livre.context, result.exception.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@categorie_livreFragment.context, result.exception.message, Toast.LENGTH_LONG).show()
                 }
 
             }
@@ -71,7 +72,7 @@ class categorie_livre : Fragment() {
 
     companion object {
         fun newInstance(param1: String, param2: String) =
-            categorie_livre().apply {
+            categorie_livreFragment().apply {
                 arguments = Bundle().apply {}
             }
     }
