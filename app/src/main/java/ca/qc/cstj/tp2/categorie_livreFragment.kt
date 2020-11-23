@@ -3,6 +3,7 @@ package ca.qc.cstj.tp2
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -30,11 +31,18 @@ class categorie_livreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_categorie_livre, container, false)
     }
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        if (item.itemId == android.R.id.home) {
+            activity?.onBackPressed()
+            return true;
+        }
+        return super.onOptionsItemSelected(item)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
