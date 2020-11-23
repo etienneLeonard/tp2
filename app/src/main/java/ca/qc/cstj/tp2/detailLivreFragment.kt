@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import ca.qc.cstj.tp2.helpers.RepositoryResult
 import ca.qc.cstj.tp2.repositories.LivreRepository
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail_livre.*
 import kotlinx.coroutines.launch
 
@@ -39,9 +40,14 @@ class detailLivreFragment : Fragment() {
                     txvTitre.text = result.data.titre
 
                     // On affiche l'image
+                    txvPrix.text = result.data.prix.toString()
+                    txvGenre.text = result.data.categorie
 
                     txvAuteur.text = result.data.auteur
                     txvIsbn.text = result.data.ISBN
+
+                    if(result.data.Img.isNotEmpty())
+                        Picasso.get().load(result.data.Img).into(imgImage)
                 }
                 is RepositoryResult.Error -> {
                     Toast.makeText(this@detailLivreFragment.context, result.exception.message, Toast.LENGTH_LONG).show()

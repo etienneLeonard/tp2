@@ -8,6 +8,6 @@ class Services {
         val SUCCURSALE_SERVICE = "http://10.0.2.2:5600/succursales"
         val CATEGORIE_SERVICE ="http://10.0.2.2:5600/categories/"
         val CATEGORIE_LIVRE_SERVICE ="http://10.0.2.2:5600/categories/nom"
-        val LIVRE_SERVICE = "http://10.0.2.2:5600/livres/"
+        val LIVRE_SERVICE = "http://10.0.2.2:5600/livres/idLivreUnique/"
     }
 }
