@@ -25,7 +25,7 @@ class SuccursaleRecyclerViewAdapter(var succursales: List<Succursale> = listOf()
 
     //EL : fonction à la création du viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuccursaleRecyclerViewAdapter.ViewHolder {
-        //on indique la view à afficher
+        //EL : on indique la view à afficher
         val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_succursale, parent, false)
 
         //EL : on lance la barre de chargement
@@ -45,11 +45,11 @@ class SuccursaleRecyclerViewAdapter(var succursales: List<Succursale> = listOf()
     override fun getItemCount(): Int = succursales.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        //on indique le textView qui va afficher le nom de la succursale
+        // EL : on indique le textView qui va afficher le nom de la succursale
         private val txvSuccursaleName: TextView = view.txvSuccursaleName
 
         fun bind(succursale: Succursale) {
-            //le nom de la succursale est le nom de la ville
+            //EL : le nom de la succursale est le nom de la ville
             txvSuccursaleName.text = succursale.ville
 
             //EL : on écoute pour s'il y a un clique sur la succursale
