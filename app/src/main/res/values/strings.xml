@@ -26,5 +26,6 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_categorie">categorie</string>
+    <string name="nom_commmentaire">Nom du commentaire</string>
 
 </resources>

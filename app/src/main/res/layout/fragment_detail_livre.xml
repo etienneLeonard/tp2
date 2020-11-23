@@ -136,10 +136,8 @@
 
         <TextView
             android:id="@+id/txvCommentaires"
-            android:layout_width="150"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:text="Commentaires"
             android:textSize="20sp"
@@ -150,10 +148,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvCommentaires"
             android:layout_width="match_parent"
-            android:layout_height="150"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toTopOf="@+id/tilNom"
-            app:layout_constraintTop_toBottomOf="@+id/txvCommentaires"
-            tools:layout_editor_absoluteX="244dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvCommentaires" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
