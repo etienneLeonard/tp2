@@ -40,7 +40,7 @@ class detailLivreFragment : Fragment() {
                     txvTitre.text = result.data.titre
 
                     // On affiche l'image
-                    txvPrix.text = result.data.prix.toString()
+                    txvPrix.text = result.data.prix.toString() + "$"
                     txvGenre.text = result.data.categorie
 
                     txvAuteur.text = result.data.auteur
