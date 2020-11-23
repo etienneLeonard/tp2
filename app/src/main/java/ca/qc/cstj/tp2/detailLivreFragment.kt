@@ -36,7 +36,7 @@ class detailLivreFragment : Fragment() {
                 is RepositoryResult.Success -> {
                     (activity as BottomActivity).supportActionBar?.title = result.data.titre
                     // On affiche le titre
-                    txvTitre.text = result.data.result
+                    txvTitre.text = result.data.titre
 
                     // On affiche l'image
 
