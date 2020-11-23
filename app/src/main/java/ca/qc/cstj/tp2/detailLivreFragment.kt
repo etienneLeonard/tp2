@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -66,15 +67,11 @@ class detailLivreFragment : Fragment() {
             }
 
         }
-        btnCommentaire.setOnClickListener(View.OnClickListener {
-           fun btnCommentaireClick(view: View) {
-               val temp = Services.LIVRE_SERVICE2 + args.id
-               temp.httpPost().jsonBody("{'name':${tilNom.text},'dateCommentaire':${LocalDateTime.now()},'message:${tilCommentaire.text}','etoile':5}")
-            }
-        })
-
-
-
+        btnCommentaire.setOnClickListener{
+            val temp = Services.LIVRE_SERVICE2 + args.id
+            var e =  "{\"name\":\"${tilNom.text}\",\"dateCommentaire\":\"${LocalDateTime.now()}\",\"message\":\"${tilCommentaire.text}\",\"etoile\":5}"
+            temp.httpPost().jsonBody(e)
+        }
 
 
     }
