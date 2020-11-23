@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@tools:sample/avatars" />
@@ -82,6 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imgImage"
                     app:layout_constraintTop_toBottomOf="@+id/txvGenre" />
@@ -132,6 +133,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
             app:layout_constraintVertical_bias="0.872" />
+
+        <TextView
+            android:id="@+id/txvCommentaires"
+            android:layout_width="150"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:text="Commentaires"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/_dynamic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvCommentaires"
+            android:layout_width="match_parent"
+            android:layout_height="150"
+            app:layout_constraintBottom_toTopOf="@+id/tilNom"
+            app:layout_constraintTop_toBottomOf="@+id/txvCommentaires"
+            tools:layout_editor_absoluteX="244dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
