@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import ca.qc.cstj.tp2.*
 import ca.qc.cstj.tp2.models.Categorie
+import ca.qc.cstj.tp2.repositories.LivreRepository
 
 
 import kotlinx.android.synthetic.main.viewholder_categorie.view.*
@@ -58,6 +59,7 @@ class CategorieRecylerViewAdapter (var categories: List<Categorie> = listOf()):R
                 //Affiche le nom de la categorie
                 Toast.makeText(it.context, categorie.NomCategorie, Toast.LENGTH_SHORT).show()
                 //Affiche les livres de la categorie
+
                 val direction = categoriesFragmentDirections.actionCategoriesFragmentToCategorieLivre(categorie.NomCategorie)
                 it.findNavController().navigate(direction)
             }

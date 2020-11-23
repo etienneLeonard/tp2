@@ -9,10 +9,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import ca.qc.cstj.tp2.R
+import ca.qc.cstj.tp2.categorie_livreFragment
+import ca.qc.cstj.tp2.categorie_livreFragmentDirections
 import ca.qc.cstj.tp2.models.CategorieLivre
+import ca.qc.cstj.tp2.models.Livre
+import ca.qc.cstj.tp2.repositories.LivreRepository
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.viewholder_categorielivre.view.*
 // Adapter pour le livre selon un categorie choisie
@@ -68,6 +73,8 @@ class CategorieLivreRecyclerViewAdapter(var livre: List<CategorieLivre> = listOf
             // Lors du click du livre son titre est afficher
             view.setOnClickListener {
                 Toast.makeText(it.context, livres.titre, Toast.LENGTH_SHORT).show()
+                val direction = categorie_livreFragmentDirections.actionCategorieLivreToDetailLivreFragment(livres.titre)
+                it.findNavController().navigate(direction)
             }
         }
     }
