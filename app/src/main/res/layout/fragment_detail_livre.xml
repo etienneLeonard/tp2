@@ -95,34 +95,33 @@
             android:id="@+id/tilCommentaire"
             android:layout_width="380dp"
             android:layout_height="60dp"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/white"
             android:contentDescription="Commentaire"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/btnCommentaire"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:inputType="text"
-            android:background="@color/white"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/tilNom"
             android:layout_width="380dp"
             android:layout_height="60dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="72dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/white"
             android:inputType="text"
-            android:background="@color/white">
+            app:layout_constraintBottom_toTopOf="@+id/btnCommentaire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
         </EditText>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnCommentaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ajouter Commentaire"
@@ -131,7 +130,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintVertical_bias="0.872"
+            android:onClick="btnCommentaireClick" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
