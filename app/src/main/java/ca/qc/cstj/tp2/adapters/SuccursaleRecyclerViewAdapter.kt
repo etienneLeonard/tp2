@@ -38,8 +38,8 @@ class SuccursaleRecyclerViewAdapter(var succursales: List<Succursale> = listOf()
     }
 
     override fun onBindViewHolder(holder: SuccursaleRecyclerViewAdapter.ViewHolder, position: Int) {
-        val planet = succursales[position]
-        holder.bind(planet)
+        val succursales = succursales[position]
+        holder.bind(succursales)
     }
 
     override fun getItemCount(): Int = succursales.size

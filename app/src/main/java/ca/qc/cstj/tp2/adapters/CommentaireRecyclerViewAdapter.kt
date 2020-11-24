@@ -37,10 +37,16 @@ class CommentaireRecyclerViewAdapter(var commentaires: List<Commentaire> = listO
 
     inner class ViewHolder(val view: View): RecyclerView.ViewHolder(view){
         private val txvCommentaireName: TextView = view.txvCommentaireName
+        private val txvDateComment : TextView =  view.txvDateComment
+        private val txvRating : TextView =  view.txvRating
+        private val txvNomAuteur : TextView =  view.txvNomAuteur
+
 
         fun bind(commentaire: Commentaire){
             txvCommentaireName.text = commentaire.message
-
+            txvDateComment.text = commentaire.dateCommentaire
+            txvNomAuteur.text=commentaire.name
+            txvRating.text = commentaire.etoile.toString() +" sur 5"
             view.setOnClickListener{
                 Toast.makeText(it.context, commentaire.message, Toast.LENGTH_SHORT).show()
             }
