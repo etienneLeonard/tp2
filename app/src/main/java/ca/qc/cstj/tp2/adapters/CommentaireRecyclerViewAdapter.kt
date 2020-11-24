@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import android.widget.TextView
 
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.models.Commentaire
+import kotlinx.android.synthetic.main.viewholder_commentaire.view.*
 
 class CommentaireRecyclerViewAdapter(var commentaires: List<Commentaire> = listOf()) : RecyclerView.Adapter<CommentaireRecyclerViewAdapter.ViewHolder>() {
     private lateinit var circularProgressDrawable: CircularProgressDrawable
@@ -34,8 +36,11 @@ class CommentaireRecyclerViewAdapter(var commentaires: List<Commentaire> = listO
     override fun getItemCount(): Int = commentaires.size
 
     inner class ViewHolder(val view: View): RecyclerView.ViewHolder(view){
+        private val txvCommentaireName: TextView = view.txvCommentaireName
 
         fun bind(commentaire: Commentaire){
+            txvCommentaireName.text = commentaire.message
+
             view.setOnClickListener{
                 Toast.makeText(it.context, commentaire.message, Toast.LENGTH_SHORT).show()
             }
