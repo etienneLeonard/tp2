@@ -78,7 +78,7 @@ class detailLivreFragment : Fragment() {
                     txvAuteur.text = result.data.auteur
                     txvIsbn.text = result.data.ISBN
 
-                    when(val result = CommentaireRepository.getCommentaire())
+                    when(val result = CommentaireRepository.getCommentaire(args.id))
                     {
                         is RepositoryResult.Success -> {
                             commentaireRecyclerViewAdapter.commentaires = result.data

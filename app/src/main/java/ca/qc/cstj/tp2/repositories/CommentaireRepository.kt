@@ -16,11 +16,13 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 object CommentaireRepository {
-    suspend fun getCommentaire() : RepositoryResult<List<Commentaire>>
+    suspend fun getCommentaire(Id:String) : RepositoryResult<List<Commentaire>>
     {
         return withContext(Dispatchers.IO)
         {
-            val(_,_,result) = Services.COMMENTAIRE_SERVICE.httpGet().responseJson()
+            var temp = Services.COMMENTAIRE_SERVICE + Id + "/commentaire"
+
+            val(_,_,result) = temp.httpGet().responseJson()
 
             when(result)
             {
