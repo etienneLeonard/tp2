@@ -99,7 +99,7 @@ class detailLivreFragment : Fragment() {
 
         }
         btnCommentaire.setOnClickListener{
-            val temp = Services.LIVRE_SERVICE2 + args.id
+            val temp = Services.LIVRE_SERVICE2 + args.id + "/commentaires"
             var e =  "{\"name\":\"${tilNom.text}\",\"dateCommentaire\":\"${LocalDateTime.now()}\",\"message\":\"${tilCommentaire.text}\",\"etoile\":5,\"idLivre\":\"${args.id}\"}"
             temp.httpPost().jsonBody(e).response{result ->  }
         }
